@@ -4,10 +4,12 @@ import NavBar from './component/NavBar'
 const App = (props) => {
   const [userLoggedIn, setUserLoggedIn] = useState(false)
 
+  //to toggle login status
   const handleAuth = () => {
     setUserLoggedIn(!userLoggedIn)
   }
 
+  //to handle page reload
   useEffect(() => {
     if (localStorage.getItem('token')) {
       handleAuth()
