@@ -1,38 +1,36 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
+function ListItem({ onClick, to, text }) {
+  return (
+    <li className="navbar-list-item">
+      <Link to={to} onClick={onClick}>{text}</Link>
+    </li>
+  );
+}
+
 function NavBar({ userLoggedIn, handleAuth, history }) {
   return (
-    <ul>
-      <li>
-        <Link to="/"> Home </Link>
-      </li>
+    <ul className="navbar-list">
+      <ListItem to="/" text="Home" />
       {
             userLoggedIn ? (
               <>
-                <li>
-                  <Link to="/account"> Account </Link>
-                </li>
-                <li>
-                  <Link onClick={() => {
+                <ListItem to="/account" text="Account" />
+                <ListItem
+                  onClick={() => {
                     localStorage.removeItem('token');
                     alert('Logged out successfully');
                     handleAuth();
                     history.push('/');
                   }}
-                  >
-                    Logout
-                  </Link>
-                </li>
+                  text="Logout"
+                />
               </>
             ) : (
               <>
-                <li>
-                  <Link to="/register">Register</Link>
-                </li>
-                <li>
-                  <Link to="/login">Login</Link>
-                </li>
+                <ListItem to="/register" text="Register" />
+                <ListItem to="/login" text="Login" />
               </>
             )
         }
