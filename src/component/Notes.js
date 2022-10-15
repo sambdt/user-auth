@@ -34,6 +34,10 @@ function Notes() {
     setNotes(noteArr);
   };
 
+  const deleteNote = (id) => {
+    setNotes(notes.filter(({ _id }) => _id !== id));
+  };
+
   return (
     <div className="notes-container">
 
@@ -42,7 +46,7 @@ function Notes() {
 
         {
             notes.length ? (
-              notes.map((note) => <Note {...note} />)
+              notes.map((note) => <Note key={note._id} {...note} deleteNote={deleteNote} />)
             ) : (
               <div> No notes found add your first note </div>
             )

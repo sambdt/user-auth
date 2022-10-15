@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:500|Titillium+Web:300,400,600,700,900|Source+Sans+Pro:300,400,600|Roboto+Condensed:300,400,700&display=swap');
+
+* {
+  box-sizing: border-box;
+  /* margin: 0;
+  padding: 0; */
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+	line-height: 1.4em;
+  font-weight: 400;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -52,6 +67,10 @@ form .input-field:first-child {
   padding: 10px;
 }
 
+form input[type="text"], form textarea {
+  width: 100%;
+}
+
 .note-card {
   border: 1px solid grey;
   padding: 10px;
@@ -60,6 +79,11 @@ form .input-field:first-child {
 }
 
 .delete-button {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.delete-modal-buttons {
   display: flex;
   flex-direction: row-reverse;
 }
