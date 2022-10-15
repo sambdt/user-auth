@@ -1,27 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import NavBar from './component/NavBar'
+import React, { useEffect, useState } from 'react';
+import NavBar from './component/NavBar';
 
-const App = (props) => {
-  const [userLoggedIn, setUserLoggedIn] = useState(false)
+function App() {
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
 
-  //to toggle login status
+  // to toggle login status
   const handleAuth = () => {
-    setUserLoggedIn(!userLoggedIn)
-  }
+    setUserLoggedIn(!userLoggedIn);
+  };
 
-  //to handle page reload
+  // to handle page reload
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      handleAuth()
+      handleAuth();
     }
-  }, [])
+  }, []);
 
   return (
     <div>
       <h1> User Auth </h1>
       <NavBar userLoggedIn={userLoggedIn} handleAuth={handleAuth} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
