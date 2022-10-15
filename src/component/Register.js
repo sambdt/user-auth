@@ -1,6 +1,3 @@
-/* eslint-disable no-alert */
-/* eslint-disable no-prototype-builtins */
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import axios from 'axios';
 
@@ -52,6 +49,7 @@ function Register({ history }) {
         .then((response) => {
           const result = response.data;
 
+          // eslint-disable-next-line no-prototype-builtins
           if (result?.hasOwnProperty('errors')) {
             alert(`Failed to created account , reason : ${result.message}`);
           } else {
