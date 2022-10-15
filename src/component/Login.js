@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+import VALID_REGEX from '../constants';
+
 function Login({ handleAuth, history }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,14 +13,12 @@ function Login({ handleAuth, history }) {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
     setEmailErr('');
     setPassword('');
 
     if (!email) {
       setEmailErr('Email field can not be empty');
-    } else if (!email.match(validRegex)) {
+    } else if (!email.match(VALID_REGEX)) {
       setEmailErr('Invalid email format');
     }
 
