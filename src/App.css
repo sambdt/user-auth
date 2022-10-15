@@ -35,15 +35,17 @@
 }
 
 .notes-list {
-  border : 1px solid black;
   width : 70%;
   padding: 10px;
 }
 
 .add-note {
-  border : 1px solid black;
   width : 30%;
   padding: 10px;
+}
+
+form .input-field:first-child {
+  padding-top: 0;
 }
 
 .input-field {
