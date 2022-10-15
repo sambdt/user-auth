@@ -16,23 +16,29 @@ const Register = (props) => {
         const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
         setEmailErr('')
-        setPassword('')
+        setPasswordErr('')
+        setUsernameErr('')
 
+        let error = false;
         if(!username) {
             setUsernameErr('Username can not be empty')
+            error = true;
         }
 
         if (!email) {
+            error = true;
             setEmailErr('Email field can not be empty')
         } else if (!email.match(validRegex)) {
+            error = true;
             setEmailErr('Invalid email format')
         }
 
         if (!password) {
+            error = true;
             setPasswordErr('Password field can not be empty')
         }
 
-        if (username !== '' && email !== "" && password !== "") {
+        if (!error) {
 
             const formData = {
                 username: username,
