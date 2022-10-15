@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import NavBar from './component/NavBar';
+import { Route } from 'react-router-dom';
+
+import Header from './component/Header';
+import Home from './component/Home';
+import Register from './component/Register';
+import Login from './component/Login';
+import Account from './component/Account';
 
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
@@ -18,8 +24,19 @@ function App() {
 
   return (
     <div>
-      <h1> User Auth </h1>
-      <NavBar userLoggedIn={userLoggedIn} handleAuth={handleAuth} />
+      <Header userLoggedIn={userLoggedIn} handleAuth={handleAuth} />
+      <Route path="/" component={Home} exact />
+      <Route path="/register" component={Register} />
+      <Route
+        path="/login"
+        render={(props) => (
+          <Login
+            {...props}
+            handleAuth={handleAuth}
+          />
+        )}
+      />
+      <Route path="/account" component={Account} />
     </div>
   );
 }

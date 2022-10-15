@@ -1,19 +1,13 @@
 import React from 'react';
-import { Link, Route, withRouter } from 'react-router-dom';
-
-import Home from './Home';
-import Register from './Register';
-import Login from './Login';
-import Account from './Account';
+import { Link, withRouter } from 'react-router-dom';
 
 function NavBar({ userLoggedIn, handleAuth, history }) {
   return (
-    <div>
-      <ul>
-        <li>
-          <Link to="/"> Home </Link>
-        </li>
-        {
+    <ul>
+      <li>
+        <Link to="/"> Home </Link>
+      </li>
+      {
             userLoggedIn ? (
               <>
                 <li>
@@ -42,22 +36,7 @@ function NavBar({ userLoggedIn, handleAuth, history }) {
               </>
             )
         }
-
-      </ul>
-
-      <Route path="/" component={Home} exact />
-      <Route path="/register" component={Register} />
-      <Route
-        path="/login"
-        render={(props) => (
-          <Login
-            {...props}
-            handleAuth={handleAuth}
-          />
-        )}
-      />
-      <Route path="/account" component={Account} />
-    </div>
+    </ul>
   );
 }
 
