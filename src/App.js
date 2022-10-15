@@ -6,6 +6,7 @@ import Home from './component/Home';
 import Register from './component/Register';
 import Login from './component/Login';
 import Account from './component/Account';
+import Notes from './component/Notes';
 
 function App() {
   const [userLoggedIn, setUserLoggedIn] = useState(false);
@@ -37,6 +38,7 @@ function App() {
         )}
       />
       <Route path="/account" component={Account} />
+      <Route path="/notes" component={Notes} />
     </div>
   );
 }

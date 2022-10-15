@@ -17,6 +17,7 @@ function NavBar({ userLoggedIn, handleAuth, history }) {
             userLoggedIn ? (
               <>
                 <ListItem to="/account" text="Account" />
+                <ListItem to="/notes" text="Notes" />
                 <ListItem
                   onClick={() => {
                     localStorage.removeItem('token');
